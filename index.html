@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myTodoList'>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>NTT TODOS</title>
+</head>
+<body>
+
+<div class="w3-navbar">
+  <a class="w3-text-blue" ng-click="showCompleted = false">Todos</a>
+  <a class="w3-text-green" ng-click="showCompleted = true">Completed</a>
+</div>
+
+<div ng-controller="myCtrl" class="w3-card w3-margin" style="max-width:800px;">
+
+<div ng-show="showCompleted">
+  <header class="w3-container w3-light-grey w3-padding-16">
+    <h3>Completed List</h3>
+  </header>
+  <table class="w3-table-all">
+    <th>Todo</th>
+    <th>Priority</th>
+    <th>Target</th>
+    <th>Completed</th>
+    <th></th>
+    <tr ng-repeat="x in done_todos">
+      <td>{{x.Todo}}</td>
+      <td>{{PRI[x.Priority]}}</td>
+      <td>{{x.Target}}</td>
+      <td>{{x.CompletedDate}}</td>
+      <td>
+        <button ng-click="removeDoneTodo($index)" class="w3-btn w3-padding w3-green">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div ng-show="!showCompleted">
+  <div class="w3-container w3-light-grey w3-padding-16">
+    <div class="w3-row w3-margin-top">
+      <div class="w3-col s12">
+        <input placeholder="Add todos here" ng-model="todo" class="w3-input w3-border w3-padding">
+      </div>
+      <div class="w3-col s1">Priority:</div>
+      <div class="w3-col s2">
+        <select ng-model="priority" 
+                ng-options="option.name for option in options"
+                class="w3-select w3-border w3-padding">
+        </select>
+      </div>
+      <div class="w3-col s2">Target Date:</div>
+      <div class="w3-col s3">
+        <input type="date" placeholder="mm/dd/yyyy" ng-model="target" class="w3-input w3-border w3-padding">
+      </div>
+      <div class="w3-col s2">
+        <button ng-click="addTodo()" class="w3-btn w3-padding w3-green">Add</button>
+      </div>
+    </div>
+    <p class="w3-padding-left w3-text-red">{{errormsg}}</p>
+  </div>
+
+  <header class="w3-container w3-light-grey w3-padding-16">
+    <h3>Todo List</h3>
+  </header>
+
+  <table class="w3-table-all">
+    <th>Todo</th>
+    <th title="Sort by priority" ng-click="sortPriority()">Priority</th>
+    <th title="Sort by target date" ng-click="sortTarget()">Target</th>
+    <th></th>
+    <tr ng-repeat="x in todos" ng-include="getTemplate($index)"></tr>
+
+    <script type="text/ng-template" id="display">
+      <td>{{x.Todo}}</td>
+      <td>{{PRI[x.Priority]}}</td>
+      <td>{{x.Target}}</td>
+      <td nowrap>
+        <button ng-click="editTodo($index)" class="w3-btn w3-padding w3-green">Edit</button>
+        <button ng-click="markComplete($index)" class="w3-btn w3-padding w3-green">Complete</button>
+        <button ng-click="removeTodo($index)" class="w3-btn w3-padding w3-green">Delete</button>
+      </td>
+    </script>
+    <script type="text/ng-template" id="edit">
+      <td><input type="text" ng-model="selected.Todo" /></td>
+      <td>
+        <select ng-model="selected.Priority" 
+                ng-options="option.name for option in options"
+                class="w3-select w3-border w3-padding">
+        </select>
+      </td>
+      <td><input type="date" ng-model="selected.Target" /></td>
+      <td nowrap>
+        <button ng-click="saveTodo($index)" class="w3-btn w3-padding w3-green">Save</button>
+        <button ng-click="reset()" class="w3-btn w3-padding w3-green">Cancel</button>
+      </td>
+    </script>
+  </table>
+</div>
+
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<script src='./app.js'></script>
+</body>
+</html>
