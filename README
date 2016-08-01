@@ -14,4 +14,6 @@ In the 'Completed' view, you can:
 
 
 Note:
-The todo and completed list are stored in memory so refreshing the browser will reset the entries. This was done instead of storing the json in the filesystem so that you can run this without the need for a webserver. This is also the reason why ngRoute was not used as well.
+The todo and completed list are stored in memory so refreshing the browser will reset the entries. 
+This was done instead of storing the json in the filesystem so that you can run this without the need for a webserver. 
+This is also the reason why ngRoute was not used as well.
