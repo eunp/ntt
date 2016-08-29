@@ -1,6 +1,7 @@
-Run the file index.html directly on the browser. (i.e. file:///C:/home/ntt/index.html)
+Run the file index.html directly on the browser. (i.e. file:///home/todos/index.html)
 
-By default the 'Todos' view will display.  There's 2 links at the top of the page that toggle between 'Todos' and 'Completed' lists.
+By default the 'Todos' view will display.  There's 2 links at the top of the page that toggle
+between 'Todos' and 'Completed' lists.
 
 In the 'Todos' view, you can:
 1. Add new todos using the form.
@@ -14,6 +15,6 @@ In the 'Completed' view, you can:
 
 
 Note:
-The todo and completed list are stored in memory so refreshing the browser will reset the entries. 
-This was done instead of storing the json in the filesystem so that you can run this without the need for a webserver. 
+The todo and completed list are stored in memory so refreshing the browser will reset the entries.
+This was done instead of storing the json in the filesystem so that you can run this without the need for a webserver.
 This is also the reason why ngRoute was not used as well.

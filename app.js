@@ -16,20 +16,20 @@ app.controller("myCtrl", function($scope, $http) {
     "Target": "2016-08-15"
     },
     {
-    "Todo": "Schedule 2nd phone interview",
+    "Todo": "Read Python Book",
     "Priority": 2,
     "Completed": false,
     "Target": "2016-08-08"
     },
     {
-    "Todo": "Phone Interview with NTT",
+    "Todo": "Make Dinner",
     "Priority": 2,
     "Completed": true,
     "Target": "2016-07-20",
     "CompletedDate": "2016-07-21"
     },
     {
-    "Todo": "Programming challenge",
+    "Todo": "Complete program",
     "Priority": 2,
     "Completed": true,
     "Target": "2016-07-31",
@@ -53,10 +53,10 @@ app.controller("myCtrl", function($scope, $http) {
      value: 0
     }, {
      name: "Med",
-     value: 1 
+     value: 1
     }, {
      name: "High",
-     value: 2 
+     value: 2
     }
   ];
   $scope.priority = $scope.options[1];
@@ -66,7 +66,7 @@ app.controller("myCtrl", function($scope, $http) {
     $scope.errormsg = "";
     $scope.pri_order = $scope.pri_order || 'desc';
 
-    if ($scope.pri_order === 'desc') {    
+    if ($scope.pri_order === 'desc') {
       $scope.pri_order = 'asc';
       $scope.todos.sort( function(a,b) {
         if (a.Priority > b.Priorty) {
@@ -95,7 +95,7 @@ app.controller("myCtrl", function($scope, $http) {
     $scope.errormsg = "";
     $scope.tgt_order = $scope.tgt_order || 'asc';
 
-    if ($scope.tgt_order === 'asc') {    
+    if ($scope.tgt_order === 'asc') {
       $scope.tgt_order = 'desc';
       $scope.todos.sort( function(a,b) {
         if (a.Target < b.Target) {
@@ -128,7 +128,7 @@ app.controller("myCtrl", function($scope, $http) {
         var formatDate = $scope.target.getFullYear() + '-'
                        + ($scope.target.getMonth() + 1) + '-'
                        + $scope.target.getDate();
-        $scope.todos.push({ 
+        $scope.todos.push({
                            "Todo": $scope.todo,
                            "Priority": $scope.priority.value,
                            "Completed": false,

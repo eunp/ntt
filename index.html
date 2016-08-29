@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./styles.css" />
-    <title>NTT TODOS</title>
+    <title>TODOS</title>
 </head>
 <body>
 
@@ -44,7 +44,7 @@
       </div>
       <div class="w3-col s1">Priority:</div>
       <div class="w3-col s2">
-        <select ng-model="priority" 
+        <select ng-model="priority"
                 ng-options="option.name for option in options"
                 class="w3-select w3-border w3-padding">
         </select>
@@ -84,7 +84,7 @@
     <script type="text/ng-template" id="edit">
       <td><input type="text" ng-model="selected.Todo" /></td>
       <td>
-        <select ng-model="selected.Priority" 
+        <select ng-model="selected.Priority"
                 ng-options="option.name for option in options"
                 class="w3-select w3-border w3-padding">
         </select>
